@@ -55,6 +55,7 @@ public class ArgParser {
 		} catch( ParseException exp ) {
 			formatter.printHelp( "L2R_NIT-BR", options );
 		    System.err.println( "\nERROR\t" + exp.getMessage() );
+		    System.exit(1);
 		}
 		
 		System.out.println("# args: " + ArgParser.print());

@@ -1,5 +1,8 @@
 package termselection;
 
+import common.ArgParser;
+import common.Data;
+
 
 public class TermSelection {
 
@@ -7,6 +10,8 @@ public class TermSelection {
 	 * @param args
 	 */
 	public static void main(String[] args) {
+		ArgParser.parse(args);
+		Data.loadData();
 		// TODO load the terms from the description of all items
 		
 		// TODO compute the score for the given metrics (CHI2, KLD, MI, DICE)

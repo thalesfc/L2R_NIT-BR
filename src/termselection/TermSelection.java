@@ -13,6 +13,7 @@ public class TermSelection {
 	 */
 	public static void main(String[] args) {
 		ArgParser.parse(args);
+		
 		// loading the terms from the description of all items
 		List<String> description = Data.getDESCRIPTION();
 

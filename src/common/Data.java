@@ -15,8 +15,12 @@ import java.util.Map.Entry;
 import com.google.common.io.Files;
 
 public class Data {
+	public final static boolean OLD_BOOK = false;
+	public final static boolean NEW_BOOK = true;
+	
 	private static String DATABASE;
 	private static final int K = 10;
+	
 	private static List<String> DESCRIPTION; // [ Descriptions ] __ bookID
 	private static List<String> BOOKS; // [ bookID ]
 	private static List<String> USERS; // [ userID ]
@@ -42,8 +46,7 @@ public class Data {
 	 *  		false == old book
 	 *  		true == new book
 	 */
-	public final static boolean OLD_BOOK = false;
-	public final static boolean NEW_BOOK = true;
+
 	static Map<String, Boolean> booksFLAG;
 
 	public static Boolean getBookFlag(String book){
@@ -54,8 +57,19 @@ public class Data {
 		booksFLAG.put(book, flag_value);
 	}
 
-	public static void setAllBooksFlag(boolean value) {
+	/**
+	 * TODO remember to clear every structure
+	 * THIS CLEAR EVERY STRUCTURE
+	 * @param value
+	 */
+	public static void clear(){
 		newItemsRatedUsers = null;
+		trainPositiveRATINGS = null;
+	}
+	
+	public static void setAllBooksFlag(boolean value) {
+		Data.clear();
+		
 		List<String> books = getBOOKS();
 		booksFLAG = new HashMap<String, Boolean>(books.size());
 		for( String book : books){
